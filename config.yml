@@ -5,14 +5,3 @@ repos:
   nobody/nothing:
     connection: ssh
     directory: /dev/null
-
-RTDS/rtds-infrastructure:
-  connection: ssh
-  directory: /home/wluke/src/infra-test2
-
-nobody_nothing:
-  connection: http
-  directory: /dev/null
-
-something:
-  connection: http
