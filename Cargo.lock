@@ -577,6 +577,7 @@ dependencies = [
  "hyper",
  "serde 1.0.131",
  "serde_derive",
+ "serde_json",
  "tokio",
 ]
 
