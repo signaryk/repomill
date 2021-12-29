@@ -1,5 +1,4 @@
 use config::{Config, ConfigError, File};
-use std::vec::Vec;
 use std::collections::HashMap;
 
 #[derive(Serialize, Deserialize, Debug, Clone)]
@@ -20,17 +19,12 @@ pub enum RepoConf {
 }
 
 impl RepoConf {
-    pub fn new() -> Result<Vec<RepoConf>, ConfigError> {
+    pub fn new() -> Result<HashMap<String, RepoConf>, ConfigError> {
         let mut c = Config::default();
         c.merge(File::with_name("config").format(config::FileFormat::Yaml))?;
 
         let repos = c.get::<HashMap<String,RepoConf>>("repos")?;
 
-        let mut v = Vec::<RepoConf>::new();
-        for (_, rc) in repos {
-            v.push(rc);
-        }
-
-        return Ok(v);
+        Ok(repos)
     }   
 }
